@@ -1,5 +1,5 @@
 # Attentive Temporal Consistent Network (ATCoN)
-This repository is the code for the ECCV 2022 paper "Learning Temporal Consistency for Source-Free Video Domain Adaptation". This repository is built based on the [MFNet](https://github.com/cypw/PyTorch-MFNet) repository. We thank the authors of MFNet for their excellent work.
+This repository is the code for the ECCV 2022 paper "[Learning Temporal Consistency for Source-Free Video Domain Adaptation](https://arxiv.org/abs/2203.04559)". This repository is built based on the [MFNet](https://github.com/cypw/PyTorch-MFNet) repository. We thank the authors of MFNet for their excellent work.
 
 ![alt text](./figures/figure-1-structure-overall-2.png "Structure of ATCoN")
 
