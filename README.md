@@ -42,3 +42,13 @@ python evaluate_source.py
 - The pretrained model where we start our training from is now uploaded to [Gdrive](https://drive.google.com/file/d/1DlBLrG-skHiwJkqD0wGrQkvXnN_dNXnN/view?usp=sharing).
 - Notes on the '/exps' folder can be found in the README file in that folder.
 - We provide a demo weight [here](https://drive.google.com/file/d/1_dQ2UP_v6SbUCB5Aj_Yw3sd1OhFVjOo0/view?usp=sharing), you should locate it in the '/exps' folder.
+
+__If you find this paper interesting and useful, please cite our paper:__
+```
+@article{xu2022learning,
+  title={Learning Temporal Consistency for Source-Free Video Domain Adaptation},
+  author={Xu, Yuecong and Yang, Jianfei and Cao, Haozhi and Wu, Keyu and Min, Wu and Chen, Zhenghua},
+  journal={arXiv preprint arXiv:2203.04559},
+  year={2022}
+}
+```
