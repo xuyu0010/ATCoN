@@ -1,0 +1,258 @@
+2022-01-19 11:47:52: Using pytorch 1.8.0 (['/home/xyc3090/anaconda3/envs/pytorch180/lib/python3.8/site-packages/torch'])
+2022-01-19 11:47:52: Start training with args:
+{
+    "batch_size": 16,
+    "classifier_type": "wn",
+    "clip_length": 16,
+    "consensus_type": "trn-m",
+    "data_parallel": false,
+    "dataset": "Ori",
+    "debug_mode": true,
+    "end_epoch": 20,
+    "fcbn_type": "bn",
+    "fine_tune": true,
+    "frame_per_seg": 1,
+    "gpus": "0",
+    "log_file": "./exps/logs/V-SftDA-0119_at-xyc-H570-I2R-target-1.log",
+    "lr_base": 0.005,
+    "lr_factor": 0.1,
+    "lr_steps": [
+        50000,
+        100000,
+        150000
+    ],
+    "model_dir": "./exps/models",
+    "model_prefix": "./exps/models/V-SftDA",
+    "network": "TaTRN",
+    "pretrained_2d": true,
+    "pretrained_3d": null,
+    "random_seed": 1,
+    "resume_epoch": -1,
+    "save_freq": 5,
+    "segments": 5,
+    "task_name": "V-SftDA",
+    "tgt_dataset": "HMDB51",
+    "train_frame_interval": 2,
+    "val_frame_interval": 2
+}
+2022-01-19 11:47:53: Dataset: 'ORI', configs: {'num_classes': 12}
+2022-01-19 11:47:53: Network:: Getting symbol using TaTRN network.
+2022-01-19 11:47:53: Network:: For frame-based method using 5 segments
+2022-01-19 11:47:53: TSNNetwork:: Utilizing consensus type trn-m
+2022-01-19 11:47:53: TSNNetwork:: graph initialized, loading pretrained model: `/data1/code/V-SftDA/network/pretrained/tsn2d_rgb_r50.pth'
+2022-01-19 11:47:53: There are layers in current network not initialized by pretrained
+2022-01-19 11:47:53: >> Failed to load: ['new_fc.weight', 'new_fc.bias', 'consensus.fc_fusion_scales.0.1.weight', 'consensus.fc_fusion_scales.0.1.bias', 'consensus.fc_fusion_scales.1.1.weight', 'consensus.fc_fusion_scales.1.1.bias', 'consensus.fc_fusion_scales.2.1.weight', 'consensus.fc_fusion_scales.2.1.bias', 'consensus.fc_fusion_scales.3.1.weight', 'consensus.fc_fusion_scales.3.1.bias']
+2022-01-19 11:47:53: TSNNetwork:: fcbn_type: bn
+2022-01-19 11:47:53: TSNNetwork:: classifier_type: wn
+2022-01-19 11:47:53: TSNNetwork:: number of classes: 12
+2022-01-19 11:47:53: loading network configs of: TATRN
+2022-01-19 11:47:53: Preprocessing:: using Video default mean & std.
+2022-01-19 11:47:53: data:: {'mean': [0.48627450980392156, 0.4588235294117647, 0.40784313725490196], 'std': [0.23482446870963955, 0.23482446870963955, 0.23482446870963955]}
+2022-01-19 11:47:53: TSNNetwork:: classifier_type: ori
+2022-01-19 11:47:53: VideoIter:: clip_length = 16, interval = [train: 2, val: 2], seed = 101
+2022-01-19 11:47:53: VideoIter:: >> `check_video' is off, `tolerant_corrupted_video' is automatically activated.
+2022-01-19 11:47:53: VideoIter:: found 840 videos in `./dataset/HMDB51/raw/list_cvt/hmdb51_ucf101_train_da.txt'
+2022-01-19 11:47:53: VideoIter:: iterator initialized (phase: 'train', num: 840)
+2022-01-19 11:47:53: VideoIter:: >> `check_video' is off, `tolerant_corrupted_video' is automatically activated.
+2022-01-19 11:47:53: VideoIter:: found 360 videos in `./dataset/HMDB51/raw/list_cvt/hmdb51_ucf101_val_da.txt'
+2022-01-19 11:47:53: VideoIter:: iterator initialized (phase: 'test', num: 360)
+2022-01-19 11:47:53: Training::Losses >>> Using IM Loss
+2022-01-19 11:47:53: Training::Losses >>> Using Clustering for Pseudo-labeling
+2022-01-19 11:47:55: Optimizer:: >> recuding the learning rate of 169 params: ['conv1.weight', 'bn1.weight', 'bn1.bias', 'layer1.0.conv1.weight', 'layer1.0.conv2.weight', 'layer1.0.bn1.weight', 'layer1.0.bn1.bias', 'layer1.0.bn2 ... s.fc_fusion_scales.2.1.weight', 'consensus.fc_fusion_scales.2.1.bias', 'consensus.fc_fusion_scales.3.1.weight', 'consensus.fc_fusion_scales.3.1.bias']
+2022-01-19 11:47:55: Model & Optimizer states are resumed from: `./exps/models/V-SftDA_ep-source.pth'
+2022-01-19 11:47:55: >> Epoch information inconsistant: 50 vs -1
+2022-01-19 11:47:55: Iter 0: start with learning rate: 5.00000e-03 (next lr step: 750)
+2022-01-19 11:47:55: Training:: >>> Updating Pseudo Labels.
+2022-01-19 11:47:55: Start epoch 0:
+2022-01-19 11:47:59: Epoch [0]   Batch [0]    Speed   3.8 (+ 4) sample/sec  loss-ce = 3.73736, top1 = 0.75000, top5 = 0.93750  
+2022-01-19 11:48:11: Epoch [0]   Batch [10]   Speed  14.1 (+ 0) sample/sec  loss-ce = 2.08152, top1 = 0.62500, top5 = 0.88125  
+2022-01-19 11:48:22: Epoch [0]   Batch [20]   Speed  14.2 (+ 0) sample/sec  loss-ce = 1.52783, top1 = 0.66250, top5 = 0.87500  
+2022-01-19 11:48:33: Epoch [0]   Batch [30]   Speed  14.1 (+ 0) sample/sec  loss-ce = 1.03425, top1 = 0.65000, top5 = 0.87500  
+2022-01-19 11:48:45: Epoch [0]   Batch [40]   Speed  14.1 (+ 0) sample/sec  loss-ce = 0.75896, top1 = 0.63750, top5 = 0.86250  
+2022-01-19 11:48:56: Epoch [0]   Batch [50]   Speed  14.5 (+ 0) sample/sec  loss-ce = 0.50877, top1 = 0.65625, top5 = 0.89375  
+2022-01-19 11:48:57: Epoch [0]   time cost: 61.70 sec (0.02 h)
+2022-01-19 11:48:59: Checkpoint (model & optimizer) saved to: ./exps/models/V-SftDA_ep-0001.pth
+2022-01-19 11:48:59: Start epoch 1:
+2022-01-19 11:49:02: Epoch [1]   Batch [0]    Speed   5.1 (+ 6) sample/sec  loss-ce = 2.18523, top1 = 0.62500, top5 = 0.93750  
+2022-01-19 11:49:13: Epoch [1]   Batch [10]   Speed  14.7 (+ 0) sample/sec  loss-ce = 0.53846, top1 = 0.69375, top5 = 0.90000  
+2022-01-19 11:49:24: Epoch [1]   Batch [20]   Speed  14.9 (+ 0) sample/sec  loss-ce = 0.57960, top1 = 0.61875, top5 = 0.86875  
+2022-01-19 11:49:34: Epoch [1]   Batch [30]   Speed  14.9 (+ 0) sample/sec  loss-ce = 0.41804, top1 = 0.65000, top5 = 0.88750  
+2022-01-19 11:49:45: Epoch [1]   Batch [40]   Speed  14.9 (+ 0) sample/sec  loss-ce = 0.34197, top1 = 0.65625, top5 = 0.91250  
+2022-01-19 11:49:56: Epoch [1]   Batch [50]   Speed  15.2 (+ 0) sample/sec  loss-ce = 0.45607, top1 = 0.66875, top5 = 0.93750  
+2022-01-19 11:49:57: Epoch [1]   time cost: 57.87 sec (0.02 h)
+2022-01-19 11:49:57: Start evaluating epoch 1:
+2022-01-19 11:50:05: Epoch [1]   Batch [21]   Speed  42.8 (+155) sample/sec  loss-ce = 1.06225, top1 = 0.71875, top5 = 0.92045  
+2022-01-19 11:50:05: Start epoch 2:
+2022-01-19 11:50:08: Epoch [2]   Batch [0]    Speed   5.3 (+ 7) sample/sec  loss-ce = 0.18732, top1 = 0.62500, top5 = 0.87500  
+2022-01-19 11:50:19: Epoch [2]   Batch [10]   Speed  14.7 (+ 0) sample/sec  loss-ce = 0.10696, top1 = 0.71875, top5 = 0.90625  
+2022-01-19 11:50:29: Epoch [2]   Batch [20]   Speed  15.0 (+ 0) sample/sec  loss-ce = 0.22706, top1 = 0.69375, top5 = 0.88750  
+2022-01-19 11:50:40: Epoch [2]   Batch [30]   Speed  14.9 (+ 0) sample/sec  loss-ce = 0.12269, top1 = 0.66875, top5 = 0.89375  
+2022-01-19 11:50:51: Epoch [2]   Batch [40]   Speed  15.0 (+ 0) sample/sec  loss-ce = 0.19351, top1 = 0.61875, top5 = 0.85000  
+2022-01-19 11:51:01: Epoch [2]   Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = 0.09751, top1 = 0.68125, top5 = 0.94375  
+2022-01-19 11:51:02: Epoch [2]   time cost: 57.38 sec (0.02 h)
+2022-01-19 11:51:02: Start epoch 3:
+2022-01-19 11:51:05: Epoch [3]   Batch [0]    Speed   5.1 (+ 7) sample/sec  loss-ce = 0.08513, top1 = 0.75000, top5 = 1.00000  
+2022-01-19 11:51:16: Epoch [3]   Batch [10]   Speed  14.8 (+ 0) sample/sec  loss-ce = 0.04187, top1 = 0.73750, top5 = 0.95625  
+2022-01-19 11:51:27: Epoch [3]   Batch [20]   Speed  15.0 (+ 0) sample/sec  loss-ce = 0.06033, top1 = 0.62500, top5 = 0.86250  
+2022-01-19 11:51:38: Epoch [3]   Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.02507, top1 = 0.71250, top5 = 0.93125  
+2022-01-19 11:51:48: Epoch [3]   Batch [40]   Speed  15.0 (+ 0) sample/sec  loss-ce = 0.14405, top1 = 0.70625, top5 = 0.91875  
+2022-01-19 11:51:59: Epoch [3]   Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = 0.10703, top1 = 0.65625, top5 = 0.90000  
+2022-01-19 11:52:00: Epoch [3]   time cost: 57.38 sec (0.02 h)
+2022-01-19 11:52:00: Start evaluating epoch 3:
+2022-01-19 11:52:08: Epoch [3]   Batch [21]   Speed  44.9 (+150) sample/sec  loss-ce = 1.21943, top1 = 0.75852, top5 = 0.92045  
+2022-01-19 11:52:08: Start epoch 4:
+2022-01-19 11:52:11: Epoch [4]   Batch [0]    Speed   5.3 (+ 7) sample/sec  loss-ce = -0.05354, top1 = 0.62500, top5 = 0.93750  
+2022-01-19 11:52:21: Epoch [4]   Batch [10]   Speed  14.8 (+ 0) sample/sec  loss-ce = 0.09585, top1 = 0.64375, top5 = 0.87500  
+2022-01-19 11:52:32: Epoch [4]   Batch [20]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.03801, top1 = 0.73750, top5 = 0.92500  
+2022-01-19 11:52:43: Epoch [4]   Batch [30]   Speed  14.9 (+ 0) sample/sec  loss-ce = 0.05942, top1 = 0.63125, top5 = 0.89375  
+2022-01-19 11:52:53: Epoch [4]   Batch [40]   Speed  15.1 (+ 0) sample/sec  loss-ce = 0.12332, top1 = 0.61875, top5 = 0.87500  
+2022-01-19 11:53:04: Epoch [4]   Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = 0.07606, top1 = 0.66250, top5 = 0.90000  
+2022-01-19 11:53:05: Epoch [4]   time cost: 57.28 sec (0.02 h)
+2022-01-19 11:53:07: Checkpoint (model & optimizer) saved to: ./exps/models/V-SftDA_ep-0005.pth
+2022-01-19 11:53:07: Start evaluating epoch 4:
+2022-01-19 11:53:15: Epoch [4]   Batch [21]   Speed  43.6 (+153) sample/sec  loss-ce = 1.23143, top1 = 0.72443, top5 = 0.92045  
+2022-01-19 11:53:15: Start epoch 5:
+2022-01-19 11:53:18: Epoch [5]   Batch [0]    Speed   5.0 (+ 7) sample/sec  loss-ce = -0.04489, top1 = 0.81250, top5 = 0.87500  
+2022-01-19 11:53:29: Epoch [5]   Batch [10]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.04416, top1 = 0.71875, top5 = 0.95000  
+2022-01-19 11:53:39: Epoch [5]   Batch [20]   Speed  15.1 (+ 0) sample/sec  loss-ce = -0.04020, top1 = 0.75000, top5 = 0.92500  
+2022-01-19 11:53:50: Epoch [5]   Batch [30]   Speed  14.9 (+ 0) sample/sec  loss-ce = 0.06510, top1 = 0.70000, top5 = 0.90000  
+2022-01-19 11:54:01: Epoch [5]   Batch [40]   Speed  15.1 (+ 0) sample/sec  loss-ce = 0.09021, top1 = 0.60000, top5 = 0.83750  
+2022-01-19 11:54:11: Epoch [5]   Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = 0.06513, top1 = 0.66875, top5 = 0.87500  
+2022-01-19 11:54:12: Epoch [5]   time cost: 57.34 sec (0.02 h)
+2022-01-19 11:54:12: Start evaluating epoch 5:
+2022-01-19 11:54:20: Epoch [5]   Batch [21]   Speed  44.1 (+155) sample/sec  loss-ce = 1.13394, top1 = 0.71307, top5 = 0.92045  
+2022-01-19 11:54:20: Start epoch 6:
+2022-01-19 11:54:23: Epoch [6]   Batch [0]    Speed   5.0 (+ 7) sample/sec  loss-ce = -0.21750, top1 = 0.68750, top5 = 0.93750  
+2022-01-19 11:54:34: Epoch [6]   Batch [10]   Speed  14.8 (+ 0) sample/sec  loss-ce = -0.09487, top1 = 0.70625, top5 = 0.93125  
+2022-01-19 11:54:45: Epoch [6]   Batch [20]   Speed  15.0 (+ 0) sample/sec  loss-ce = 0.01540, top1 = 0.68750, top5 = 0.87500  
+2022-01-19 11:54:56: Epoch [6]   Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = 0.03250, top1 = 0.70625, top5 = 0.90000  
+2022-01-19 11:55:06: Epoch [6]   Batch [40]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.05894, top1 = 0.70000, top5 = 0.90000  
+2022-01-19 11:55:17: Epoch [6]   Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = -0.09922, top1 = 0.69375, top5 = 0.91875  
+2022-01-19 11:55:18: Epoch [6]   time cost: 57.52 sec (0.02 h)
+2022-01-19 11:55:18: Start epoch 7:
+2022-01-19 11:55:21: Epoch [7]   Batch [0]    Speed   4.8 (+ 8) sample/sec  loss-ce = -0.19623, top1 = 0.62500, top5 = 0.87500  
+2022-01-19 11:55:32: Epoch [7]   Batch [10]   Speed  14.8 (+ 0) sample/sec  loss-ce = -0.05866, top1 = 0.68125, top5 = 0.87500  
+2022-01-19 11:55:32: Iter: 750, change learning rate to 5.00000e-04 for step [750:1125)
+2022-01-19 11:55:43: Epoch [7]   Batch [20]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.07941, top1 = 0.68750, top5 = 0.88125  
+2022-01-19 11:55:53: Epoch [7]   Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.07510, top1 = 0.65625, top5 = 0.88125  
+2022-01-19 11:56:04: Epoch [7]   Batch [40]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.18441, top1 = 0.68750, top5 = 0.87500  
+2022-01-19 11:56:14: Epoch [7]   Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = 0.00198, top1 = 0.63125, top5 = 0.86875  
+2022-01-19 11:56:15: Epoch [7]   time cost: 57.69 sec (0.02 h)
+2022-01-19 11:56:15: Start evaluating epoch 7:
+2022-01-19 11:56:24: Epoch [7]   Batch [21]   Speed  43.5 (+155) sample/sec  loss-ce = 1.32024, top1 = 0.73011, top5 = 0.93182  
+2022-01-19 11:56:24: Start epoch 8:
+2022-01-19 11:56:27: Epoch [8]   Batch [0]    Speed   5.2 (+ 6) sample/sec  loss-ce = 0.12227, top1 = 0.62500, top5 = 0.75000  
+2022-01-19 11:56:38: Epoch [8]   Batch [10]   Speed  14.7 (+ 0) sample/sec  loss-ce = -0.10093, top1 = 0.76875, top5 = 0.91875  
+2022-01-19 11:56:48: Epoch [8]   Batch [20]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.09099, top1 = 0.68750, top5 = 0.90000  
+2022-01-19 11:56:59: Epoch [8]   Batch [30]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.16010, top1 = 0.65000, top5 = 0.89375  
+2022-01-19 11:57:10: Epoch [8]   Batch [40]   Speed  15.1 (+ 0) sample/sec  loss-ce = -0.14434, top1 = 0.65000, top5 = 0.87500  
+2022-01-19 11:57:20: Epoch [8]   Batch [50]   Speed  15.4 (+ 0) sample/sec  loss-ce = -0.14181, top1 = 0.72500, top5 = 0.90625  
+2022-01-19 11:57:21: Epoch [8]   time cost: 57.44 sec (0.02 h)
+2022-01-19 11:57:21: Start epoch 9:
+2022-01-19 11:57:24: Epoch [9]   Batch [0]    Speed   5.3 (+ 7) sample/sec  loss-ce = 0.03542, top1 = 0.62500, top5 = 0.93750  
+2022-01-19 11:57:35: Epoch [9]   Batch [10]   Speed  14.8 (+ 0) sample/sec  loss-ce = -0.17272, top1 = 0.63125, top5 = 0.90625  
+2022-01-19 11:57:46: Epoch [9]   Batch [20]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.00436, top1 = 0.69375, top5 = 0.89375  
+2022-01-19 11:57:56: Epoch [9]   Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.10686, top1 = 0.60625, top5 = 0.90625  
+2022-01-19 11:58:07: Epoch [9]   Batch [40]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.06576, top1 = 0.61250, top5 = 0.86250  
+2022-01-19 11:58:17: Epoch [9]   Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = -0.07477, top1 = 0.70625, top5 = 0.86875  
+2022-01-19 11:58:18: Epoch [9]   time cost: 57.33 sec (0.02 h)
+2022-01-19 11:58:20: Checkpoint (model & optimizer) saved to: ./exps/models/V-SftDA_ep-0010.pth
+2022-01-19 11:58:20: Start evaluating epoch 9:
+2022-01-19 11:58:28: Epoch [9]   Batch [21]   Speed  45.6 (+149) sample/sec  loss-ce = 1.35957, top1 = 0.71591, top5 = 0.92898  
+2022-01-19 11:58:28: Start epoch 10:
+2022-01-19 11:58:31: Epoch [10]  Batch [0]    Speed   5.2 (+ 7) sample/sec  loss-ce = -0.21163, top1 = 0.87500, top5 = 0.93750  
+2022-01-19 11:58:42: Epoch [10]  Batch [10]   Speed  14.7 (+ 0) sample/sec  loss-ce = -0.13676, top1 = 0.67500, top5 = 0.90000  
+2022-01-19 11:58:53: Epoch [10]  Batch [20]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.11005, top1 = 0.66875, top5 = 0.88750  
+2022-01-19 11:59:03: Epoch [10]  Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.12902, top1 = 0.62500, top5 = 0.89375  
+2022-01-19 11:59:14: Epoch [10]  Batch [40]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.12469, top1 = 0.73125, top5 = 0.93125  
+2022-01-19 11:59:16: Iter: 1125, change learning rate to 5.00000e-05 for step [1125:Inf)
+2022-01-19 11:59:25: Epoch [10]  Batch [50]   Speed  15.4 (+ 0) sample/sec  loss-ce = -0.08257, top1 = 0.69375, top5 = 0.90625  
+2022-01-19 11:59:26: Epoch [10]   time cost: 57.52 sec (0.02 h)
+2022-01-19 11:59:26: Start epoch 11:
+2022-01-19 11:59:29: Epoch [11]  Batch [0]    Speed   5.2 (+ 7) sample/sec  loss-ce = -0.03209, top1 = 0.87500, top5 = 0.87500  
+2022-01-19 11:59:40: Epoch [11]  Batch [10]   Speed  14.7 (+ 0) sample/sec  loss-ce = -0.06344, top1 = 0.60625, top5 = 0.86250  
+2022-01-19 11:59:50: Epoch [11]  Batch [20]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.09294, top1 = 0.68750, top5 = 0.89375  
+2022-01-19 12:00:01: Epoch [11]  Batch [30]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.04988, top1 = 0.65625, top5 = 0.88750  
+2022-01-19 12:00:12: Epoch [11]  Batch [40]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.10780, top1 = 0.70625, top5 = 0.91250  
+2022-01-19 12:00:22: Epoch [11]  Batch [50]   Speed  15.4 (+ 0) sample/sec  loss-ce = -0.05269, top1 = 0.70000, top5 = 0.90000  
+2022-01-19 12:00:23: Epoch [11]   time cost: 57.52 sec (0.02 h)
+2022-01-19 12:00:23: Start evaluating epoch 11:
+2022-01-19 12:00:31: Epoch [11]  Batch [21]   Speed  43.7 (+153) sample/sec  loss-ce = 1.15919, top1 = 0.76136, top5 = 0.93182  
+2022-01-19 12:00:31: Start epoch 12:
+2022-01-19 12:00:34: Epoch [12]  Batch [0]    Speed   5.1 (+ 7) sample/sec  loss-ce = -0.04328, top1 = 0.56250, top5 = 0.68750  
+2022-01-19 12:00:45: Epoch [12]  Batch [10]   Speed  14.7 (+ 0) sample/sec  loss-ce = -0.12535, top1 = 0.65000, top5 = 0.88125  
+2022-01-19 12:00:56: Epoch [12]  Batch [20]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.12252, top1 = 0.69375, top5 = 0.87500  
+2022-01-19 12:01:07: Epoch [12]  Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.13595, top1 = 0.68125, top5 = 0.91875  
+2022-01-19 12:01:17: Epoch [12]  Batch [40]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.07650, top1 = 0.60000, top5 = 0.90625  
+2022-01-19 12:01:28: Epoch [12]  Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = -0.03056, top1 = 0.65625, top5 = 0.91875  
+2022-01-19 12:01:29: Epoch [12]   time cost: 57.55 sec (0.02 h)
+2022-01-19 12:01:29: Start epoch 13:
+2022-01-19 12:01:32: Epoch [13]  Batch [0]    Speed   5.0 (+ 7) sample/sec  loss-ce = -0.16227, top1 = 0.56250, top5 = 0.93750  
+2022-01-19 12:01:43: Epoch [13]  Batch [10]   Speed  14.8 (+ 0) sample/sec  loss-ce = -0.09761, top1 = 0.68125, top5 = 0.88750  
+2022-01-19 12:01:54: Epoch [13]  Batch [20]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.09636, top1 = 0.66875, top5 = 0.90000  
+2022-01-19 12:02:04: Epoch [13]  Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.11968, top1 = 0.69375, top5 = 0.92500  
+2022-01-19 12:02:15: Epoch [13]  Batch [40]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.06593, top1 = 0.68750, top5 = 0.88750  
+2022-01-19 12:02:25: Epoch [13]  Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = -0.15807, top1 = 0.68750, top5 = 0.90000  
+2022-01-19 12:02:26: Epoch [13]   time cost: 57.55 sec (0.02 h)
+2022-01-19 12:02:26: Start evaluating epoch 13:
+2022-01-19 12:02:34: Epoch [13]  Batch [21]   Speed  44.8 (+153) sample/sec  loss-ce = 1.10206, top1 = 0.76420, top5 = 0.92330  
+2022-01-19 12:02:34: Start epoch 14:
+2022-01-19 12:02:37: Epoch [14]  Batch [0]    Speed   5.2 (+ 7) sample/sec  loss-ce = -0.02757, top1 = 0.56250, top5 = 0.75000  
+2022-01-19 12:02:48: Epoch [14]  Batch [10]   Speed  14.7 (+ 0) sample/sec  loss-ce = -0.19216, top1 = 0.70625, top5 = 0.88750  
+2022-01-19 12:02:59: Epoch [14]  Batch [20]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.06638, top1 = 0.62500, top5 = 0.86875  
+2022-01-19 12:03:10: Epoch [14]  Batch [30]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.10398, top1 = 0.73125, top5 = 0.91250  
+2022-01-19 12:03:20: Epoch [14]  Batch [40]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.15247, top1 = 0.70000, top5 = 0.93750  
+2022-01-19 12:03:31: Epoch [14]  Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = -0.11973, top1 = 0.65625, top5 = 0.90000  
+2022-01-19 12:03:32: Epoch [14]   time cost: 57.55 sec (0.02 h)
+2022-01-19 12:03:34: Checkpoint (model & optimizer) saved to: ./exps/models/V-SftDA_ep-0015.pth
+2022-01-19 12:03:34: Start evaluating epoch 14:
+2022-01-19 12:03:42: Epoch [14]  Batch [21]   Speed  43.4 (+156) sample/sec  loss-ce = 1.14815, top1 = 0.75568, top5 = 0.91477  
+2022-01-19 12:03:42: Training:: >>> Updating Pseudo Labels.
+2022-01-19 12:03:42: Start epoch 15:
+2022-01-19 12:03:45: Epoch [15]  Batch [0]    Speed   5.4 (+ 6) sample/sec  loss-ce = -0.12673, top1 = 0.43750, top5 = 0.93750  
+2022-01-19 12:03:56: Epoch [15]  Batch [10]   Speed  13.8 (+ 0) sample/sec  loss-ce = -0.18449, top1 = 0.70625, top5 = 0.93750  
+2022-01-19 12:04:08: Epoch [15]  Batch [20]   Speed  14.1 (+ 0) sample/sec  loss-ce = -0.21586, top1 = 0.65000, top5 = 0.91250  
+2022-01-19 12:04:19: Epoch [15]  Batch [30]   Speed  14.0 (+ 0) sample/sec  loss-ce = -0.23549, top1 = 0.66875, top5 = 0.94375  
+2022-01-19 12:04:31: Epoch [15]  Batch [40]   Speed  14.0 (+ 0) sample/sec  loss-ce = -0.23671, top1 = 0.69375, top5 = 0.90625  
+2022-01-19 12:04:42: Epoch [15]  Batch [50]   Speed  14.4 (+ 0) sample/sec  loss-ce = -0.28686, top1 = 0.67500, top5 = 0.88750  
+2022-01-19 12:04:43: Epoch [15]   time cost: 60.94 sec (0.02 h)
+2022-01-19 12:04:43: Start evaluating epoch 15:
+2022-01-19 12:04:51: Epoch [15]  Batch [21]   Speed  44.3 (+153) sample/sec  loss-ce = 1.48369, top1 = 0.69886, top5 = 0.89489  
+2022-01-19 12:04:51: Start epoch 16:
+2022-01-19 12:04:54: Epoch [16]  Batch [0]    Speed   5.1 (+ 7) sample/sec  loss-ce = 0.28337, top1 = 0.50000, top5 = 0.81250  
+2022-01-19 12:05:05: Epoch [16]  Batch [10]   Speed  14.8 (+ 0) sample/sec  loss-ce = 0.00135, top1 = 0.63750, top5 = 0.89375  
+2022-01-19 12:05:16: Epoch [16]  Batch [20]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.12766, top1 = 0.70625, top5 = 0.92500  
+2022-01-19 12:05:26: Epoch [16]  Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.12463, top1 = 0.67500, top5 = 0.92500  
+2022-01-19 12:05:37: Epoch [16]  Batch [40]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.23535, top1 = 0.76250, top5 = 0.90000  
+2022-01-19 12:05:47: Epoch [16]  Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = -0.11563, top1 = 0.65625, top5 = 0.87500  
+2022-01-19 12:05:48: Epoch [16]   time cost: 57.50 sec (0.02 h)
+2022-01-19 12:05:48: Start epoch 17:
+2022-01-19 12:05:51: Epoch [17]  Batch [0]    Speed   5.2 (+ 6) sample/sec  loss-ce = -0.19764, top1 = 0.68750, top5 = 0.93750  
+2022-01-19 12:06:02: Epoch [17]  Batch [10]   Speed  14.7 (+ 0) sample/sec  loss-ce = -0.11021, top1 = 0.71250, top5 = 0.88750  
+2022-01-19 12:06:13: Epoch [17]  Batch [20]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.03243, top1 = 0.64375, top5 = 0.88750  
+2022-01-19 12:06:24: Epoch [17]  Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.09199, top1 = 0.58750, top5 = 0.88125  
+2022-01-19 12:06:34: Epoch [17]  Batch [40]   Speed  15.1 (+ 0) sample/sec  loss-ce = -0.14659, top1 = 0.70625, top5 = 0.90625  
+2022-01-19 12:06:45: Epoch [17]  Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = -0.16794, top1 = 0.71250, top5 = 0.91875  
+2022-01-19 12:06:46: Epoch [17]   time cost: 57.41 sec (0.02 h)
+2022-01-19 12:06:46: Start evaluating epoch 17:
+2022-01-19 12:06:54: Epoch [17]  Batch [21]   Speed  43.7 (+155) sample/sec  loss-ce = 1.14422, top1 = 0.73011, top5 = 0.92898  
+2022-01-19 12:06:54: Start epoch 18:
+2022-01-19 12:06:57: Epoch [18]  Batch [0]    Speed   5.5 (+ 7) sample/sec  loss-ce = -0.23092, top1 = 0.75000, top5 = 0.93750  
+2022-01-19 12:07:08: Epoch [18]  Batch [10]   Speed  14.8 (+ 0) sample/sec  loss-ce = -0.04603, top1 = 0.66875, top5 = 0.91250  
+2022-01-19 12:07:18: Epoch [18]  Batch [20]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.17784, top1 = 0.68125, top5 = 0.89375  
+2022-01-19 12:07:29: Epoch [18]  Batch [30]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.07877, top1 = 0.66875, top5 = 0.89375  
+2022-01-19 12:07:40: Epoch [18]  Batch [40]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.05086, top1 = 0.69375, top5 = 0.87500  
+2022-01-19 12:07:50: Epoch [18]  Batch [50]   Speed  15.5 (+ 0) sample/sec  loss-ce = -0.07628, top1 = 0.69375, top5 = 0.90625  
+2022-01-19 12:07:51: Epoch [18]   time cost: 57.30 sec (0.02 h)
+2022-01-19 12:07:51: Start epoch 19:
+2022-01-19 12:07:54: Epoch [19]  Batch [0]    Speed   5.4 (+ 7) sample/sec  loss-ce = -0.04829, top1 = 0.62500, top5 = 0.93750  
+2022-01-19 12:08:05: Epoch [19]  Batch [10]   Speed  14.7 (+ 0) sample/sec  loss-ce = -0.12444, top1 = 0.65000, top5 = 0.88750  
+2022-01-19 12:08:16: Epoch [19]  Batch [20]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.09917, top1 = 0.71250, top5 = 0.92500  
+2022-01-19 12:08:26: Epoch [19]  Batch [30]   Speed  14.9 (+ 0) sample/sec  loss-ce = -0.18831, top1 = 0.66875, top5 = 0.90625  
+2022-01-19 12:08:37: Epoch [19]  Batch [40]   Speed  15.0 (+ 0) sample/sec  loss-ce = -0.14120, top1 = 0.66250, top5 = 0.88125  
+2022-01-19 12:08:48: Epoch [19]  Batch [50]   Speed  15.4 (+ 0) sample/sec  loss-ce = -0.15098, top1 = 0.65000, top5 = 0.91875  
+2022-01-19 12:08:49: Epoch [19]   time cost: 57.40 sec (0.02 h)
+2022-01-19 12:08:51: Checkpoint (model & optimizer) saved to: ./exps/models/V-SftDA_ep-0020.pth
+2022-01-19 12:08:51: Start evaluating epoch 19:
+2022-01-19 12:08:59: Epoch [19]  Batch [21]   Speed  43.3 (+155) sample/sec  loss-ce = 1.05330, top1 = 0.75852, top5 = 0.93182  
+2022-01-19 12:08:59: Optimization done!
