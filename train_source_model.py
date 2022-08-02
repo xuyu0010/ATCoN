@@ -13,7 +13,7 @@ from train.lr_scheduler import MultiFactorScheduler as MFS
 
 
 def train_source_model(net_feat, net_fc, net_cls, model_prefix, num_classes, src_dataset, input_conf, clip_length=8, segments=3, frame_per_seg=1, 
-				train_frame_interval=2, val_frame_interval=2, resume_epoch=-1, batch_size=4, end_epoch=10, save_freq=1, lr_base=0.01, lr_factor=0.1, lr_steps=[4000, 8000], 
+				train_frame_interval=2, val_frame_interval=2, resume_epoch=-1, batch_size=4, save_freq=1, lr_base=0.01, lr_factor=0.1, lr_steps=[4000, 8000], 
 				end_epoch=1000, fine_tune=False, data_parallel=False, **kwargs):
 
 	assert torch.cuda.is_available(), "Currently, we only support CUDA version"
