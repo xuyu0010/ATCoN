@@ -156,7 +156,7 @@ class TRN_base(nn.Module):
 		outs = []
 		assert x.shape[2] == self.segments, ValueError("input shape {} not match segments {}".format(x.shape[2], self.segments))
 		for i in range(x.shape[2]):
-			out = x[:, :, 0, :, :]
+			out = x[:, :, i, :, :]
 			out = self.conv1(out)
 			out = self.bn1(out)
 			out = self.relu(out)
