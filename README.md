@@ -46,7 +46,7 @@ python evaluate_source.py
 
 __If you find this paper interesting and useful, please cite our paper:__
 ```
-@article{xu2022sourcefree,
+@inproceedings{xu2022sourcefree,
   title={Source-Free Video Domain Adaptation by Learning Temporal Consistency for Action Recognition},
   author={Xu, Yuecong and Yang, Jianfei and Cao, Haozhi and Wu, Keyu and Min, Wu and Chen, Zhenghua},
   booktitle={Computer Vision -- ECCV 2022},
