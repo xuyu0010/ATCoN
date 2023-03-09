@@ -17,11 +17,11 @@ Please visit our [project page](https://xuyu0010.github.io/sfvda.html) to find o
 ## Training and Testing
 There are two steps involved during training: a) training of the source model; b) training of the target model. Note that the source model should be stored properly before the training of the target model.
 
-To train the source dataset, simply run:
+To train on the source dataset, simply run:
 ```python
 python train_source.py
 ```
-To train the source dataset, simply run:
+To train on the target dataset, simply run:
 ```python
 python train_target.py
 ```
